@@ -1,0 +1,106 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+#tablares li div h4 {
+    margin: 5px;
+}
+#tablares li div h3 {
+    margin: 5px;
+}
+
+#body{
+    background-color: #BFD8AF;
+    width: 90%;
+    height: 90%;
+    margin: auto;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+}
+
+button {
+    min-width: 180px;
+    border-radius: 25px;
+    border-color: #3f5e2d;
+    color: #3f5e2d;
+    padding: 5px;
+}
+button:hover {
+    cursor: pointer;
+}
+.span{
+    width: 20px;
+}
+
+input {
+    padding: 5px 15px;
+    border-radius: 25px;
+    border-color: #3f5e2d;
+}
+.back{
+    transition: all 300ms linear;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.418);
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    left: 0%;
+    top: 0%;
+}
+.active {
+    visibility: visible !important;
+}
+
+#number {
+    transition: all 300ms linear;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.418);
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    visibility: hidden;
+    left: 0%;
+    top: 0%;
+}
+#number:hover {
+    cursor: pointer;
+}
+#number div:hover {
+    cursor: default;
+}
+.visible {
+    visibility: visible !important;
+}
+.hidden {
+    visibility: hidden;
+}
+body div div ul{
+    list-style: none;
+    width: 90%;
+}
+body div div ul li{
+    align-items: center;
+    margin-top: 10px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #1e311d;
+}
+body div div ul li p {
+    text-align: center;
+}
+
+#btn_shot {
+    background-color: gold
+}
+#btn_shot:disabled {
+    background-color: #bdcdd0;
+    /*color: #f8f8ec;
+     Cambia el color de fondo a gris cuando el botón está deshabilitado */
+}

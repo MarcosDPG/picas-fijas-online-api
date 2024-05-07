@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="Online-Game" content="width=device-width, initial-scale=1.0">
+    <title>Getting ready</title>
+    <link href="{{ url_for('static', filename='css/estilosGame-online.css') }}" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"
+        integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA=="
+        crossorigin="anonymous"></script>
+</head>
+
+<body class="scrolll">
+    <div id="number" class="active">
+        <div id="body">
+            <h2 style="margin-bottom: 30px;">¡¡Picas y Fijas!!</h2>
+            <div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 80%; margin-bottom: 20px;">
+                <div style="display: flex; flex-direction: row;">
+                    <p>Mis tiros: </p>
+                    <input style="width: 40px; border: 0px solid #BFD8AF; background-color: #BFD8AF;" value="0" type="number" id="shots" readonly>
+                </div>
+                <div style="display: flex; flex-direction: row;">
+                    <p>Tiros enemigos: </p>
+                    <input style="width: 40px; border: 0px solid #BFD8AF; background-color: #BFD8AF;" value="0" type="number" id="shotsenemy" readonly>
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: row; border-bottom: 1px solid #1e311d; padding-bottom:5px; padding-left: 20px; padding-right: 20px; flex-wrap: wrap; justify-content: center;">
+                <input id="bullet" onkeyup="this.value=Numeros(this.value)" type="text" value="0123">
+                <button id="btn_shot" style="margin-left: 20px; margin-top: 10px; margin-right: 20px;" onclick="shot()">Lanzar</button>
+            </div>
+            <ul id="tabla">
+            </ul>
+            <button onclick="Rendirse()" style="margin-top: 40px; background-color: darkred; color: white; font-weight: bold;">Rendirse</button>
+        </div>
+    </div>
+    <div id="resultados" class="hidden back">
+        <div style="overflow: hidden; overflow-y: scroll; margin-top: auto; margin-bottom: auto; display:flex; align-items: center; flex-direction: column; width: 80%; height: 50%; background-color: #BFD8AF; border: 2px solid black;">
+            <h1 style="text-align: center; margin-top: 20px; padding-bottom: 10px; border-bottom: 1px solid #1e311d; margin-bottom: 30px;">RESULTADOS</h1>
+            <ul id="tablares">
+            </ul>
+            <button onclick="left()" style="margin-top: 10px;">Volver al menu</button>
+        </div>
+    </div>
+    <div id="sala_espera" class="hidden active back" style="position: fixed; width: 100%; height: 100%;">
+        <div style="overflow: hidden; overflow-y: scroll; margin-top: auto; margin-bottom: auto; display:flex; align-items: center; flex-direction: column; width: 80%; height: 50%; background-color: #BFD8AF; border: 2px solid black;">
+            <h1 style="text-align: center; margin-top: 20px; padding-bottom: 10px; border-bottom: 1px solid #1e311d; margin-bottom: 30px;">Sala de espera</h1>
+            <ul id="jugadores">
+            </ul>
+            <button onclick="left()" style="margin-top: 10px;">Abandonar Sala</button>
+        </div>
+    </div>
+    <div id="popup" class="hidden back" style="position: fixed; width: 100%; height: 100%;">
+        <div style="padding: 10%; background-color: white; max-width: 60%; margin: auto; border: 2px solid goldenrod">
+            <h2 style="margin-bottom: 40px;">Aviso</h2>
+            <h3 id="message_popup">Problemitas, que nunca faltan ;D</h3>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/main_game_online.js') }}"></script>
+</body>
+</html>

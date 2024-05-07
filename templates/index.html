@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Picas y fijas</title>
+    <link href="{{ url_for('static', filename='css/estilos.css') }}" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="scrolll">
+
+    <div id="panelPrincipal">
+        <h1>
+            ¡PICAS Y FIJAS!
+        </h1>
+        <input class="input" id="USERNAME" type="text" placeholder="User name" required autocomplete="off">
+        <button id="local" onclick="window.location.href='/game/local'">Local</button>
+        <button id="online">Crear Sala</button>
+        <button id="salas">Salas disponibles</button>
+        <button onclick="window.location.href='#Instrucciones'">Instruciones</button>
+    </div>
+    <h2 id="Instrucciones">Instruciones</h2>
+    <ul style="margin-bottom: 10%;">
+        <li><b>Objetivo del juego:</b><br>Adivinar un número secreto seleccionado por el oponente.</li>
+        <li>
+            <b>Cómo se juega:</b>
+            <ol>
+                <li>
+                    <b>Elección del número:</b>
+                    <br>Los jugadores eligen un número secreto de la cantidad de dígitos seleccionados. Este número no puede tener
+                    dígitos repetidos (por ejemplo, 0121 no sería válido en cambio 0123 sí).
+                </li>
+                <li>
+                    <b>Adivinanza:</b>
+                    <br>El jugador hace una suposición sobre el número secreto del oponente.
+                </li>
+                <li>
+                    <b>Evaluación de la suposición:</b>
+                    <br>El jugador que eligió el número secreto evalúa la suposición del otro jugador y
+                    proporciona pistas en forma de "Picas" y "Fijas":
+                    <ul>
+                        <li>
+                            <b>Pica:</b>
+                            <br>Si un dígito de la suposición está en el número secreto, pero no en la misma posición correcta, el
+                            jugador da una "pica" por cada coincidencia.
+                            <br>por ejemplo:
+                            <br>numero secreto: 0123
+                            <br>numero jugado: 3456
+                            <br>3456 tiene 1 pica (el 3)
+                        </li>
+                        <li>
+                            <b>Fija:</b>
+                            <br>Si un dígito de la suposición está en el número secreto y también en la misma posición correcta, el
+                            jugador da una "fija" por cada coincidencia.
+                            <br>por ejemplo:
+                            <br>numero secreto: 0123
+                            <br>numero jugado: 0456
+                            <br>0456 tiene 1 fija (el 0)
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Adivinar:</b>
+                    <br>Basándose en las pistas de picas y fijas proporcionadas, el jugador hace otra suposición, tratando
+                    de adivinar el número secreto.
+                </li>
+                <li>
+                    <b>Continuar:</b>
+                    <br>Los pasos 3 y 4 se repiten hasta que el jugador adivine correctamente el número secreto o decida
+                    rendirse.
+                </li>
+            </ol>
+        </li>
+    </ul>
+    <div id="crear_sala_panel" class="back_window invisible">
+        <div id="panel">
+            <h2>Creando sala...</h2>
+            <form id="formulario">
+                <label for="digitos">Por favor ingrese el número de dígitos para jugar:</label>
+                <input type="text" id="digitos" name="digitos" pattern="^[3-9]|10$" title="Ingrese un número del 3 al 10" required autocomplete="off">
+                <div style="display: flex; flex-direction: row; width: 70%;  justify-content: space-evenly;">
+                    <button type="submit" style="min-width: 20%;">Crear Sala</button>
+                    <button type="button" style="min-width: 20%;" onclick="toggleCrearSala()">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="unirse_sala_panel" class="back_window invisible">
+        <div id="panel">
+            <h2 style="margin-top: 0px;">Sala disponibles</h2>
+            <table style="width: 90%;">
+                <tr>
+                    <th>ID Sala</th>
+                    <th>N° Jugadores</th>
+                    <th>N° Digitos</th>
+                    <th>Opciones</th>
+                </tr>
+            </table>
+            <div style="width: 100%; max-height: 50%; overflow-y: scroll;" class="scrolll">
+                <table id="salas_table" style="width: 90%;"></table>
+            </div>
+            <button onclick="toggleSalas()">Volver</button>
+            </table>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
