@@ -18,6 +18,10 @@ def hello():
 def local_game():
     return render_template("localGame.html")
 
+@app.route("/game/local/bot")
+def local_game_bot():
+    return render_template("localGame_bot.html")
+
 @app.route("/game/online")
 def online_game():
     return render_template("online-game.html")

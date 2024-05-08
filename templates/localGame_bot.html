@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="LocalGame" content="width=device-width, initial-scale=1.0">
+    <title>Getting ready</title>
+    <link href="{{ url_for('static', filename='css/estilosGame.css') }}" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="scrolll">
+    <div style="display: flex; flex-direction: column; height: 100%; width: 100%; max-height: 100%; max-width: 100%;">
+        <div id="Controles" style="text-align: center">
+            <h3 style="margin-top: 10%;">Turno de: <span id="player_name"></span></h3>
+            <input type="text" onkeyup="this.value=Numeros(this.value)" id="bullet">
+            <button onclick="shot()">Lanzar</button>
+        </div>
+        <div
+            style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%; margin-top: 5%; height: 50vh;">
+            <div id="fieldPlayer1" class="fieldPlayer scrolll">
+                <ul id="tabla_p1">
+                </ul>
+            </div>
+            <div id="fieldPlayer2" class="fieldPlayer scrolll selected">
+                <ul id="tabla_p2">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="mensaje_eleccion" class="visible">
+        <div class="colunm_eleccion">
+            <h3>Jugador 1</h3>
+            <p>Nombre:</p>
+            <input id="nombre_p1" type="text">
+            <p>Número de elección</p>
+            <input id="numero_p1" type="password" onkeyup="this.value=Numeros(this.value)">
+            <button onclick="eleccion('p1',this)">Validar</button>
+        </div>
+        <div class="colunm_eleccion">
+            <h3 style="line-height: 45px;">Jugador 2 (BOT)</h3>
+            <p>Nombre:</p>
+            <input id="nombre_p2" type="text" value="BOTCITO" readonly>
+            <p>Número de elección:</p>
+            <input id="numero_p2" type="password" onkeyup="this.value=Numeros(this.value)" readonly>
+        </div>
+    </div>
+    <div id="resultados">
+    </div>
+    <script src="{{ url_for('static', filename='js/main_bot.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main_game_local_bot.js') }}"></script>
+</body>
+
+</html>
