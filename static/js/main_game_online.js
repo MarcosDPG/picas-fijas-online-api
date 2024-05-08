@@ -224,6 +224,9 @@ function setupSocketListeners() {
     })
 
     socket.on("inicio", (mis_tiros,tiros_enemigos) => {
+        if (!document.getElementById("btn_chat").classList.contains("visible")) {
+            document.getElementById("btn_chat").classList.add("visible")
+        }
         if (document.getElementById("popup").classList.contains("visible")) {
             show_popup("Jugador contrario desconectado\nEsperando su reconexion.\nSi abandonas la sala sera cerrada.",true)
         }
@@ -260,9 +263,28 @@ function setupSocketListeners() {
     })
 
     socket.on("jugadorOffline", function (msg) {
-        console.log("player desconectado")
+        if (document.getElementById("btn_chat").classList.contains("visible")) {
+            document.getElementById("btn_chat").classList.remove("visible")
+        }
         show_popup("Jugador contrario desconectado\nEsperando su reconexion.\nSi abandonas la sala sera cerrada.",true)
     })
+
+    socket.on("chatin",(mensaje,player_id)=>{
+        if (!document.getElementById("notificacion_new_message").classList.contains("visible")) {
+            document.getElementById("notificacion_new_message").classList.add("visible")
+        }
+        const chat = document.getElementById("messages")
+        const clase = ["msg_mine","msg_enemy"]
+        let claseSelection = 1
+        if (player_id==localStorage.getItem("USERNAME")) {
+            claseSelection = 0
+        }
+        chat.innerHTML = `<div class="box_msg">`+
+            `<div class="${clase[claseSelection]}">${mensaje}</div>`+
+            `</div>` +
+            chat.innerHTML
+    })
+
     window.abandonarSala = function() {
         socket.emit("abandonarSala", localStorage.getItem("SALA"), localStorage.getItem("USERNAME"));
     };
@@ -273,6 +295,10 @@ function setupSocketListeners() {
         document.getElementById("btn_shot").disabled = true
         console.log(fijas)
         socket.emit("giveShot", localStorage.getItem("SALA"), localStorage.getItem("USERNAME"),tiro, picas, fijas);
+    };
+    window.chatin = function() {
+        socket.emit("chatin",document.getElementById("msg").value,localStorage.getItem("USERNAME"),localStorage.getItem("SALA"))
+        document.getElementById("msg").value = ""
     };
 }
 
@@ -291,6 +317,12 @@ function Rendirse() {
     window.shotEmit()
 }
 
+function sendMsg() {
+    if (document.getElementById("msg").value!="" && document.getElementById("msg").value!=null) {
+        window.chatin()
+    }
+}
+
 function show_popup(message="",waiting=false,time=10) {
     document.getElementById("popup").classList.toggle("visible")
     document.getElementById("message_popup").textContent = message
@@ -299,6 +331,13 @@ function show_popup(message="",waiting=false,time=10) {
             document.getElementById("popup").classList.toggle("visible")
         }, time*1000);
     }
+}
+
+function toggleChat() {
+    if (document.getElementById("notificacion_new_message").classList.contains("visible")) {
+        document.getElementById("notificacion_new_message").classList.remove("visible")
+    }
+    document.getElementById("box_chat").classList.toggle("visible")
 }
 
 function Numeros(string){//Solo numeros

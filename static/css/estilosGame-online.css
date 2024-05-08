@@ -104,3 +104,94 @@ body div div ul li p {
     /*color: #f8f8ec;
      Cambia el color de fondo a gris cuando el botón está deshabilitado */
 }
+
+.circulo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 45px;
+    color: #1e311d;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.9);
+    position: fixed;
+    bottom: 60px;
+    right: 60px;
+    border: 3px solid #1e311d;
+    cursor: pointer;
+}
+
+/* Estilos para el icono de chat */
+.fa-comment {
+font-size: inherit; /* Heredar el tamaño del círculo */
+}
+
+#messages {
+    background-color: white;
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-y: scroll;
+    height: 80%;
+    align-items: flex-end;
+    border-top: 1px solid #1e311d;
+}
+
+#box_chat {
+    background-color: #1e311d;
+    position: fixed;
+    bottom: 60px;
+    right: 60px;
+    border: 3px solid #1e311d;
+    border-radius: 20px;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.9);
+    max-width: 85%;
+    min-width: 35%;
+    height: 75%;
+    width: 350px;
+}
+
+.box_msg {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.msg_enemy {
+    background-color: #bdcdd0;
+    color: #1e311d;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    width: 80%;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 4%;
+}
+
+.msg_mine {
+    background-color: #3f5e2d;
+    color: white;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    width: 80%;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 10%;
+}
+
+#notificacion_new_message {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #f11d39;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.7);
+    position: fixed;
+    bottom: 145px;
+    right: 145px;
+}

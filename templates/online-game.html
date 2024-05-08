@@ -6,6 +6,7 @@
     <meta name="Online-Game" content="width=device-width, initial-scale=1.0">
     <title>Getting ready</title>
     <link href="{{ url_for('static', filename='css/estilosGame-online.css') }}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"
         integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA=="
         crossorigin="anonymous"></script>
@@ -54,6 +55,21 @@
         <div style="padding: 10%; background-color: white; max-width: 60%; margin: auto; border: 2px solid goldenrod">
             <h2 style="margin-bottom: 40px;">Aviso</h2>
             <h3 id="message_popup">Problemitas, que nunca faltan ;D</h3>
+        </div>
+    </div>
+    <div id="btn_chat" class="circulo hidden" onclick="toggleChat()">
+        <i class="fas fa-comment"></i>
+    </div>
+    <div id="notificacion_new_message" class="hidden"></div>
+    <div id="box_chat" class="hidden">
+        <div style="display: flex; flex-direction: row; justify-content: space-around; height: 9%;">
+            <h4 style="margin: auto; padding-left: 8px; color: white; font-weight: bold;">Chat de sala</h4>
+            <button style="margin: auto; margin-right: 8px; min-width: 0px; background-color: darkred; color: white;" onclick="toggleChat()">Cerrar</button>
+        </div>
+        <div id="messages" class="scrolll"></div>
+        <div style="padding-top: 1%; display: flex; flex-direction: row; justify-content: space-evenly; height: 9%; border-top: 1px solid #1e311d;">
+            <input style="min-width: 50%;" id="msg" type="text" placeholder="Escribe un mensaje">
+            <button style="width: 25%; min-width: 0px;" onclick="sendMsg()">Enviar</button>
         </div>
     </div>
     <script src="{{ url_for('static', filename='js/main_game_online.js') }}"></script>
