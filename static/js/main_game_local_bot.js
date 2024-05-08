@@ -1,5 +1,6 @@
 const ND = 10
 const bot = new LogicaFijas();
+var last_shot = ""
 bot.prearranque()
 var nums = {
     "p1": "",
@@ -39,6 +40,8 @@ function shot() {
         alert("El numero debe ser de " + String(ND) + " digitos")
     } else {
         if (validar(num)) {
+            document.getElementById("bullet").readOnly = true
+            document.getElementById("btn_shot").disabled = true
             addshot(num, player_turn)
         } else {
             alert("Ningun digito se puede repetir!, recuerdalo!")
@@ -129,13 +132,15 @@ function nextTurn() {
     player_turn = getNextPlayer()
     document.getElementById('player_name').textContent = names["p" + player_turn]
     if (player_turn=="2") {
-        document.getElementById("bullet").readOnly = true
+        last_shot = document.getElementById("bullet").value
         document.getElementById("bullet").value = bot.lanzar().join("")
         setTimeout(()=>{
             shot()
+            document.getElementById("bullet").value = last_shot
         },2000)
     } else {
         document.getElementById("bullet").readOnly = false
+        document.getElementById("btn_shot").disabled = false
     }
 }
 

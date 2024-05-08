@@ -13,7 +13,7 @@
         <div id="Controles" style="text-align: center">
             <h3 style="margin-top: 10%;">Turno de: <span id="player_name"></span></h3>
             <input type="text" onkeyup="this.value=Numeros(this.value)" id="bullet">
-            <button onclick="shot()">Lanzar</button>
+            <button id="btn_shot" onclick="shot()">Lanzar</button>
         </div>
         <div
             style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%; margin-top: 5%; height: 50vh;">
@@ -46,6 +46,11 @@
     </div>
     <div id="resultados">
     </div>
+    <style>
+        #btn_shot:disabled {
+            background-color: #bdcdd0;
+        }
+    </style>
     <script src="{{ url_for('static', filename='js/main_bot.js') }}"></script>
     <script src="{{ url_for('static', filename='js/main_game_local_bot.js') }}"></script>
 </body>

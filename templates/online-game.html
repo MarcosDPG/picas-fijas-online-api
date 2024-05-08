@@ -30,13 +30,13 @@
                 <input id="bullet" onkeyup="this.value=Numeros(this.value)" type="text" value="0123">
                 <button id="btn_shot" style="margin-left: 20px; margin-top: 10px; margin-right: 20px;" onclick="shot()">Lanzar</button>
             </div>
-            <ul id="tabla">
+            <ul id="tabla" class="scrolll" style="overflow-y: scroll;">
             </ul>
             <button onclick="Rendirse()" style="margin-top: 40px; background-color: darkred; color: white; font-weight: bold;">Rendirse</button>
         </div>
     </div>
     <div id="resultados" class="hidden back">
-        <div style="overflow: hidden; overflow-y: scroll; margin-top: auto; margin-bottom: auto; display:flex; align-items: center; flex-direction: column; width: 80%; height: 50%; background-color: #BFD8AF; border: 2px solid black;">
+        <div class="scrolll" style="overflow: hidden; overflow-y: scroll; margin-top: auto; margin-bottom: auto; display:flex; align-items: center; flex-direction: column; width: 80%; height: 50%; background-color: #BFD8AF; border: 2px solid black;">
             <h1 style="text-align: center; margin-top: 20px; padding-bottom: 10px; border-bottom: 1px solid #1e311d; margin-bottom: 30px;">RESULTADOS</h1>
             <ul id="tablares">
             </ul>
@@ -44,8 +44,9 @@
         </div>
     </div>
     <div id="sala_espera" class="hidden active back" style="position: fixed; width: 100%; height: 100%;">
-        <div style="overflow: hidden; overflow-y: scroll; margin-top: auto; margin-bottom: auto; display:flex; align-items: center; flex-direction: column; width: 80%; height: 50%; background-color: #BFD8AF; border: 2px solid black;">
-            <h1 style="text-align: center; margin-top: 20px; padding-bottom: 10px; border-bottom: 1px solid #1e311d; margin-bottom: 30px;">Sala de espera</h1>
+        <div class="scrolll" style="overflow: hidden; overflow-y: scroll; margin-top: auto; margin-bottom: auto; display:flex; align-items: center; flex-direction: column; width: 80%; height: 50%; background-color: #BFD8AF; border: 2px solid black;">
+            <h1 style="text-align: center; margin-top: 20px; padding-bottom: 10px; border-bottom: 1px solid #1e311d;">Sala de espera</h1>
+            <h3 id="id_sala" style="text-align: center; margin-top: 10px; border-bottom: 1px solid #1e311d; margin-bottom: 30px;"></h3>
             <ul id="jugadores">
             </ul>
             <button onclick="left()" style="margin-top: 10px;">Abandonar Sala</button>

@@ -183,3 +183,12 @@ p {
 #salas_table th {
     color: #BFD8AF;
 }
+
+@media screen and (max-width: 1080px) {
+    #titulo {
+        font-size: 60px;
+    }
+    #Instrucciones {
+        font-size: 35px;
+    }
+}

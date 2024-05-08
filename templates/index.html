@@ -11,10 +11,10 @@
 <body class="scrolll">
 
     <div id="panelPrincipal">
-        <h1>
+        <h1 id="titulo">
             ¡PICAS Y FIJAS!
         </h1>
-        <input class="input" id="USERNAME" type="text" placeholder="User name" required autocomplete="off">
+        <input style="min-width: 120px;" class="input" id="USERNAME" type="text" placeholder="User name" required autocomplete="off">
         <button id="local" onclick="window.location.href='/game/local'">Local</button>
         <button id="local_bot" onclick="window.location.href='/game/local/bot'">Local vs BOT</button>
         <button id="online">Crear Sala</button>
@@ -22,7 +22,7 @@
         <button onclick="window.location.href='#Instrucciones'">Instruciones</button>
     </div>
     <h2 id="Instrucciones">Instruciones</h2>
-    <ul style="margin-bottom: 10%;">
+    <ul style="padding-bottom: 15px;">
         <li><b>Objetivo del juego:</b><br>Adivinar un número secreto seleccionado por el oponente.</li>
         <li>
             <b>Cómo se juega:</b>

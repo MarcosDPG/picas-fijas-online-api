@@ -195,3 +195,30 @@ font-size: inherit; /* Heredar el tamaño del círculo */
     bottom: 145px;
     right: 145px;
 }
+
+.scrolll::-webkit-scrollbar {
+    -webkit-appearance: none;
+    background-color: #99BC85;
+}
+
+.scrolll::-webkit-scrollbar:vertical {
+    width: 4px;
+}
+
+.scrolll::-webkit-scrollbar-button:increment,
+.scrolll::-webkit-scrollbar-button {
+    display: none;
+}
+
+.scrolll::-webkit-scrollbar:horizontal {
+    height: 4px;
+}
+
+.scrolll::-webkit-scrollbar-thumb {
+    background-color: #3f5e2d;
+    border-radius: 3px;
+}
+
+.scrolll::-webkit-scrollbar-track {
+    border-radius: 2px;
+}

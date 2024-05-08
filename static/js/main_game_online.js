@@ -5,6 +5,8 @@ var picas = 0;
 var fijas = 0;
 document.addEventListener('DOMContentLoaded', () => {
 
+    document.getElementById("id_sala").textContent = localStorage.getItem("SALA") || "Sin SALA"
+
     if(localStorage.getItem("SALA")!=null&&localStorage.getItem("USERNAME")!=null&&localStorage.getItem("SIZE")!=null) {    
         document.getElementById("btn_shot").disabled = true;
         fetch(`./unirse/${localStorage.getItem("SALA")}/${localStorage.getItem("USERNAME")}`,{method: 'POST'})
